@@ -208,10 +208,9 @@ struct ContentView: View {
         }
     }
 
-    private func handleSelection(_ result: Result<[URL], Error>, isModel: Bool) {
+    private func handleSelection(_ result: Result<URL, Error>, isModel: Bool) {
         switch result {
-        case let .success(urls):
-            guard let url = urls.first else { return }
+        case let .success(url):
             if isModel {
                 guard url.pathExtension.lowercased() == "bin" else {
                     state.errorMessage = "Scegli il file locale del modello Whisper in formato .bin."
