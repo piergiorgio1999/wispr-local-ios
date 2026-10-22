@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+: "${PR_AUTHOR_LOGIN:?PR_AUTHOR_LOGIN is required}"
+: "${PR_CLOSING_REFERENCES_JSON:?PR_CLOSING_REFERENCES_JSON is required}"
+
+jq -e 'type == "array"' >/dev/null <<<"$PR_CLOSING_REFERENCES_JSON" \
+    || { echo "linking: closingIssuesReferences is not an array" >&2; exit 1; }
+
+case "$PR_AUTHOR_LOGIN" in
+    dependabot[[]bot])
+        echo "linking: static bot allowlist exemption"
+        exit 0
+        ;;
+esac
+
+if [[ "$(jq 'length' <<<"$PR_CLOSING_REFERENCES_JSON")" -ne 1 ]]; then
+    echo "linking: exactly one closing issue reference is required" >&2
+    exit 1
+fi
+
+echo "linking: exactly one closing issue reference found"
