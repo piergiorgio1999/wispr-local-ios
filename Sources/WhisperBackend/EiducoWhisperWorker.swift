@@ -129,7 +129,7 @@ public actor EiducoWhisperWorker {
             let samples = try await EiducoAudioDecoder.decodeMono16kFloat(from: audioURL)
             if cancellation.isCancelled { throw CancellationError() }
 
-            let segments = try engine.transcribe(samples: samples) { percent in
+            let transcript = try engine.transcribe(samples: samples) { percent in
                 progress(EiducoWorkerProgress(
                     lessonTitle: lesson.title,
                     completedLessons: completedBeforeLesson,
@@ -148,7 +148,7 @@ public actor EiducoWhisperWorker {
                 stage: .writingFiles,
                 fraction: 1
             ))
-            try EiducoTranscriptWriter.write(segments, to: lesson.directoryURL)
+            try EiducoTranscriptWriter.write(transcript, to: lesson.directoryURL)
             completed += 1
         }
 
@@ -220,8 +220,10 @@ private final class ProgressReporter: @unchecked Sendable {
 private final class WhisperCppEngine {
     private let context: OpaquePointer
     private let cancellation: CancellationFlag
+    private let modelPath: String
 
     init(modelPath: String, cancellation: CancellationFlag = CancellationFlag()) throws {
+        self.modelPath = modelPath
         self.cancellation = cancellation
         var params = whisper_context_default_params()
 #if targetEnvironment(simulator)
@@ -242,7 +244,7 @@ private final class WhisperCppEngine {
     func transcribe(
         samples: [Float],
         progress: @escaping @Sendable (Int) -> Void
-    ) throws -> [EiducoTranscriptSegment] {
+    ) throws -> EiducoTranscript {
         guard let sampleCount = Int32(exactly: samples.count) else {
             throw EiducoWhisperError.audioDecodeFailed("audio troppo lungo per whisper.cpp")
         }
@@ -288,6 +290,47 @@ private final class WhisperCppEngine {
             segments.append(EiducoTranscriptSegment(start: start, end: end, text: text))
         }
         guard !segments.isEmpty else { throw EiducoWhisperError.missingOutput }
-        return segments
+        let audio = JSONDocumentDimensions(
+            context: whisper_model_n_audio_ctx(context),
+            state: whisper_model_n_audio_state(context),
+            head: whisper_model_n_audio_head(context),
+            layer: whisper_model_n_audio_layer(context)
+        )
+        let text = JSONDocumentDimensions(
+            context: whisper_model_n_text_ctx(context),
+            state: whisper_model_n_text_state(context),
+            head: whisper_model_n_text_head(context),
+            layer: whisper_model_n_text_layer(context)
+        )
+        let detectedLanguage = String(cString: whisper_lang_str(whisper_full_lang_id(context)))
+        return EiducoTranscript(
+            segments: segments,
+            metadata: EiducoTranscriptMetadata(
+                systemInfo: String(cString: whisper_print_system_info()),
+                modelType: String(cString: whisper_model_type_readable(context)),
+                multilingual: whisper_is_multilingual(context) != 0,
+                vocabularySize: whisper_model_n_vocab(context),
+                audioContext: audio.context,
+                audioState: audio.state,
+                audioHeads: audio.head,
+                audioLayers: audio.layer,
+                textContext: text.context,
+                textState: text.state,
+                textHeads: text.head,
+                textLayers: text.layer,
+                melCount: whisper_model_n_mels(context),
+                modelTypeCode: whisper_model_ftype(context),
+                modelPath: modelPath,
+                language: "it",
+                detectedLanguage: detectedLanguage
+            )
+        )
     }
+}
+
+private struct JSONDocumentDimensions {
+    let context: Int32
+    let state: Int32
+    let head: Int32
+    let layer: Int32
 }

@@ -12,6 +12,31 @@ public struct EiducoTranscriptSegment: Codable, Sendable, Equatable {
     }
 }
 
+struct EiducoTranscriptMetadata: Sendable {
+    let systemInfo: String
+    let modelType: String
+    let multilingual: Bool
+    let vocabularySize: Int32
+    let audioContext: Int32
+    let audioState: Int32
+    let audioHeads: Int32
+    let audioLayers: Int32
+    let textContext: Int32
+    let textState: Int32
+    let textHeads: Int32
+    let textLayers: Int32
+    let melCount: Int32
+    let modelTypeCode: Int32
+    let modelPath: String
+    let language: String
+    let detectedLanguage: String
+}
+
+struct EiducoTranscript: Sendable {
+    let segments: [EiducoTranscriptSegment]
+    let metadata: EiducoTranscriptMetadata
+}
+
 public struct EiducoLesson: Identifiable, Sendable, Equatable {
     public enum State: String, Sendable {
         case pending
