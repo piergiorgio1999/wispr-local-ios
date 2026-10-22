@@ -34,11 +34,16 @@
 ./.template/template-manifest.json
 ./AGENTS.md
 ./AUDIT.md
+./App/AppState.swift
+./App/ContentView.swift
+./App/Info.plist
+./App/WisprLocalApp.swift
 ./CHANGELOG.md
 ./CLAUDE.md
 ./CODE_OF_CONDUCT.md
 ./CONTRIBUTING.md
 ./DECISIONS.md
+./Dependencies/WhisperCpp/Package.swift
 ./README.md
 ./SECURITY.md
 ./SPEC-V1.md
@@ -48,6 +53,9 @@
 ./Sources/WhisperBackend/EiducoTranscriptWriter.swift
 ./Sources/WhisperBackend/EiducoWhisperWorker.swift
 ./TEMPLATE_VERSION
+./WisprLocal.xcodeproj/project.pbxproj
+./WisprLocal.xcodeproj/xcshareddata/xcschemes/WisprLocal.xcscheme
+./WisprLocalTests/ProgressTests.swift
 ./acceptance/README.md
 ./acceptance/VERIFICATION.md
 ./acceptance/cases/ACC-01.md
