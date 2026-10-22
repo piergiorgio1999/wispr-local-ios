@@ -216,28 +216,32 @@ flowchart TD
   n0009 --> n0010
   n0011["swift"]
   n0001 --> n0011
-  n0012["template-fixtures/Package.swift"]
+  n0012["Dependencies/WhisperCpp/Package.swift"]
   n0011 --> n0012
   n0013["details unavailable"]
   n0012 --> n0013
-  n0014["template"]
-  n0001 --> n0014
-  n0015["mcp/package.json"]
+  n0014["template-fixtures/Package.swift"]
+  n0011 --> n0014
+  n0015["details unavailable"]
   n0014 --> n0015
-  n0016["dependencies"]
-  n0015 --> n0016
-  n0017["@modelcontextprotocol/sdk 1.30.0"]
+  n0016["template"]
+  n0001 --> n0016
+  n0017["mcp/package.json"]
   n0016 --> n0017
-  n0018["zod 4.4.3"]
-  n0016 --> n0018
-  n0019["typescript"]
-  n0001 --> n0019
-  n0020["checks/typescript/package.json"]
-  n0019 --> n0020
-  n0021["dependencies"]
-  n0020 --> n0021
-  n0022["typescript 5.9.2"]
+  n0018["dependencies"]
+  n0017 --> n0018
+  n0019["@modelcontextprotocol/sdk 1.30.0"]
+  n0018 --> n0019
+  n0020["zod 4.4.3"]
+  n0018 --> n0020
+  n0021["typescript"]
+  n0001 --> n0021
+  n0022["checks/typescript/package.json"]
   n0021 --> n0022
+  n0023["dependencies"]
+  n0022 --> n0023
+  n0024["typescript 5.9.2"]
+  n0023 --> n0024
 ```
 
 ```text
@@ -252,6 +256,8 @@ repository
     template-fixtures/pyproject.toml
       details unavailable
   swift
+    Dependencies/WhisperCpp/Package.swift
+      details unavailable
     template-fixtures/Package.swift
       details unavailable
   template
