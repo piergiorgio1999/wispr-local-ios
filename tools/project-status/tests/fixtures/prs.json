@@ -1,0 +1,6 @@
+[
+  {"number":10,"title":"Implements issue 2","state":"OPEN","labels":[],"closingIssuesReferences":[{"number":2}],"statusCheckRollup":[{"conclusion":"SUCCESS"}],"mergeStateStatus":"CLEAN"},
+  {"number":11,"title":"Conflicting issue 5","state":"OPEN","labels":[],"closingIssuesReferences":[{"number":5}],"statusCheckRollup":[{"conclusion":"FAILURE"}],"mergeStateStatus":"CONFLICTING"},
+  {"number":12,"title":"Blocked issue 6","state":"OPEN","labels":[{"name":"status:attention"}],"closingIssuesReferences":[{"number":6}],"statusCheckRollup":[{"conclusion":"FAILURE"}],"mergeStateStatus":"CLEAN"},
+  {"number":13,"title":"Attention issue 2","state":"OPEN","labels":[{"name":"status:attention"}],"closingIssuesReferences":[{"number":2}],"statusCheckRollup":[{"conclusion":"SUCCESS"}],"mergeStateStatus":"CLEAN"}
+]

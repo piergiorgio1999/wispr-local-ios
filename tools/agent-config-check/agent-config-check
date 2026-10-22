@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
+source "$ROOT/tools/lib/common.sh"
+
+require_jq
+
+cd "$ROOT"
+
+status=0
+
+check() {
+    local desc="$1"
+    shift
+    if "$@"; then
+        echo "✅ $desc"
+    else
+        echo "❌ $desc"
+        status=1
+    fi
+}
+
+check "AGENTS.md exists" test -f AGENTS.md
+check "CLAUDE.md exists" test -f CLAUDE.md
+check "CLAUDE.md references AGENTS.md" grep -qi "AGENTS.md" CLAUDE.md
+check "DECISIONS.md exists" test -f DECISIONS.md
+check "scope-map.json is valid JSON" jq empty scope-map.json
+
+locale_keys='["merge_recommendation","merge_advised","do_not_merge","reason","pr_verification","pr","branch","merge_state","scope","metadata","status_checks","scope_guard_output","non_self_status_checks","none_visible","status","conclusion","scope_guard_passed","scope_guard_failed","metadata_loaded","ci_gate_passed","ci_gate_failed"]'
+locale_status=0
+for locale_file in config/template/comment-locales/*.json; do
+    if [[ ! -f "$locale_file" ]] || ! jq -e --argjson keys "$locale_keys" '($keys - keys) == []' "$locale_file" >/dev/null 2>&1; then
+        locale_status=1
+    fi
+done
+check "comment locales contain all required messages" test "$locale_status" -eq 0
+
+if [[ -f TEMPLATE_VERSION && -f config/template/version.json ]]; then
+    file_version="$(tr -d '[:space:]' < TEMPLATE_VERSION)"
+    json_version="$(jq -r '.templateVersion' config/template/version.json)"
+    check "TEMPLATE_VERSION matches config/template/version.json ($file_version)" test "$file_version" = "$json_version"
+else
+    echo "❌ TEMPLATE_VERSION / config/template/version.json missing"
+    status=1
+fi
+
+echo
+if [[ "$status" -eq 0 ]]; then
+    echo "✅ agent-config-check: OK"
+else
+    echo "❌ agent-config-check: FAILED"
+fi
+
+exit "$status"

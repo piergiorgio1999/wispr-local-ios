@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "matchPolicy": "first-match-wins",
+  "scopes": [
+    {
+      "name": "github",
+      "paths": [
+        ".github/**"
+      ]
+    },
+    {
+      "name": "template",
+      "paths": [
+        ".template/**",
+        "config/**",
+        "schemas/**",
+        "contracts/**",
+        "ci/**",
+        "acceptance/**",
+        "copier.yml",
+        "{{_copier_conf.answers_file}}.jinja",
+        "scope-map.json",
+        "TEMPLATE_VERSION",
+        ".gitleaks.toml",
+        ".gitignore",
+        "template-only/**"
+      ]
+    },
+    {
+      "name": "documentation",
+      "paths": [
+        "*.md",
+        "docs/**"
+      ]
+    },
+    {
+      "name": "typescript",
+      "paths": [
+        "checks/typescript/**"
+      ]
+    },
+    {
+      "name": "swift",
+      "paths": [
+        "checks/swift/**"
+      ]
+    },
+    {
+      "name": "python",
+      "paths": [
+        "checks/python/**"
+      ]
+    },
+    {
+      "name": "rust",
+      "paths": [
+        "checks/rust/**"
+      ]
+    },
+    {
+      "name": "go",
+      "paths": [
+        "checks/go/**"
+      ]
+    },
+    {
+      "name": "shell",
+      "paths": [
+        "checks/shell/**",
+        "tools/**",
+        "scripts/**"
+      ]
+    },
+    {
+      "name": "fixtures",
+      "paths": [
+        "template-fixtures/**",
+        "tests/fixtures/**"
+      ]
+    }
+  ]
+}
