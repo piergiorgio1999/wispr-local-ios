@@ -1,0 +1,198 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {};
+	objectVersion = 60;
+	objects = {
+		4E7422C5E6D1B2F0CE746147 = {
+			isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>";
+		};
+		7810F410EA0F73DCFE5337E7 = {
+			isa = PBXBuildFile; fileRef = 4E7422C5E6D1B2F0CE746147;
+		};
+		D3CC244FE3B63DFF710117B7 = {
+			isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>";
+		};
+		325B38CDE12A1F3CA6127E0E = {
+			isa = PBXBuildFile; fileRef = D3CC244FE3B63DFF710117B7;
+		};
+		E9B3BE413B4E4772C0911FCC = {
+			isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WisprLocalApp.swift; sourceTree = "<group>";
+		};
+		00F800FD8321A518F0121624 = {
+			isa = PBXBuildFile; fileRef = E9B3BE413B4E4772C0911FCC;
+		};
+		63D4669B63332A14B13BF8C6 = {
+			isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EiducoAudioDecoder.swift; sourceTree = "<group>";
+		};
+		2CAEDE4B71C90BACC4526E99 = {
+			isa = PBXBuildFile; fileRef = 63D4669B63332A14B13BF8C6;
+		};
+		C07171ADF7FBF29600093A57 = {
+			isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EiducoTranscript.swift; sourceTree = "<group>";
+		};
+		804FB8B4655BDE6E73400A2C = {
+			isa = PBXBuildFile; fileRef = C07171ADF7FBF29600093A57;
+		};
+		CB8CC0DDF553D175341A944C = {
+			isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EiducoTranscriptWriter.swift; sourceTree = "<group>";
+		};
+		36FE27B506A5A653AFE3C0BD = {
+			isa = PBXBuildFile; fileRef = CB8CC0DDF553D175341A944C;
+		};
+		B887678D63487ECCFCBCDBAB = {
+			isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EiducoWhisperWorker.swift; sourceTree = "<group>";
+		};
+		06FB803AE84750F163D358D0 = {
+			isa = PBXBuildFile; fileRef = B887678D63487ECCFCBCDBAB;
+		};
+		BD26F3CBCFA3636D9842F479 = {
+			isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressTests.swift; sourceTree = "<group>";
+		};
+		80507C89766A226A9BF59222 = {
+			isa = PBXBuildFile; fileRef = BD26F3CBCFA3636D9842F479;
+		};
+		1507F021100E808DBE2FAA00 = {
+			isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>";
+		};
+		655EF97FE96DE056C0463E0D = {
+			isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WisprLocal.app; sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BF50C49B5C397BF80B93D2B5 = {
+			isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WhisperBackend.framework; sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1C01F1AFA8A999B3652F3242 = {
+			isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WisprLocalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5BAAE32049F7F0C44FA31549 = {
+			isa = PBXBuildFile; fileRef = BF50C49B5C397BF80B93D2B5;
+		};
+		3430B5EAF5D96782280738BE = {
+			isa = PBXBuildFile; fileRef = BF50C49B5C397BF80B93D2B5; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); };
+		};
+		FD5DE2895D22B1027EFFEC12 = {
+			isa = PBXBuildFile; fileRef = BF50C49B5C397BF80B93D2B5;
+		};
+		BD1F590F614F85E428790E4D = {
+			isa = PBXBuildFile; productRef = ECB25C3C6F13E3F2AA3A6F96;
+		};
+		3A2A88DEEFF3D1D23E496597 = {
+			isa = PBXGroup; children = (4E7422C5E6D1B2F0CE746147, D3CC244FE3B63DFF710117B7, E9B3BE413B4E4772C0911FCC, 1507F021100E808DBE2FAA00); path = App; sourceTree = "<group>";
+		};
+		42C4D8A17231565E759F5354 = {
+			isa = PBXGroup; children = (63D4669B63332A14B13BF8C6, C07171ADF7FBF29600093A57, CB8CC0DDF553D175341A944C, B887678D63487ECCFCBCDBAB); path = Sources/WhisperBackend; sourceTree = "<group>";
+		};
+		8B7A6DECC0651D269EA794C7 = {
+			isa = PBXGroup; children = (BD26F3CBCFA3636D9842F479); path = WisprLocalTests; sourceTree = "<group>";
+		};
+		FBDC4F23F93125BBEEAE800C = {
+			isa = PBXGroup; children = (655EF97FE96DE056C0463E0D, BF50C49B5C397BF80B93D2B5, 1C01F1AFA8A999B3652F3242); name = Products; sourceTree = "<group>";
+		};
+		325F10A6957A34D66CB8C0E4 = {
+			isa = PBXGroup; children = (3A2A88DEEFF3D1D23E496597, 42C4D8A17231565E759F5354, 8B7A6DECC0651D269EA794C7, FBDC4F23F93125BBEEAE800C); sourceTree = "<group>";
+		};
+		2D764CD838DB39F040AA7EC4 = {
+			isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (7810F410EA0F73DCFE5337E7, 325B38CDE12A1F3CA6127E0E, 00F800FD8321A518F0121624); runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF8133E926578885C169E662 = {
+			isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (2CAEDE4B71C90BACC4526E99, 804FB8B4655BDE6E73400A2C, 36FE27B506A5A653AFE3C0BD, 06FB803AE84750F163D358D0); runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F3002A5D69B22D357A58AA9 = {
+			isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (80507C89766A226A9BF59222); runOnlyForDeploymentPostprocessing = 0;
+		};
+		12384B5908BE5FE5B3301CEE = {
+			isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (5BAAE32049F7F0C44FA31549); runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F82EC67954518D7E1DC7CD2 = {
+			isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (BD1F590F614F85E428790E4D); runOnlyForDeploymentPostprocessing = 0;
+		};
+		99C7943D90D870A50ADE9160 = {
+			isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (FD5DE2895D22B1027EFFEC12); runOnlyForDeploymentPostprocessing = 0;
+		};
+		06F5DC629BD46AAFD46564D1 = {
+			isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0;
+		};
+		5D125A81AD2E14FE3B8CD92E = {
+			isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0;
+		};
+		C584AE92222380FB29B6223F = {
+			isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0;
+		};
+		2CE417D6E64CB4A61C3C102C = {
+			isa = PBXCopyFilesBuildPhase; buildActionMask = 2147483647; dstPath = ""; dstSubfolderSpec = 10; files = (3430B5EAF5D96782280738BE); name = "Embed Frameworks"; runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC4D2511B20C9E9563CAFCE3 = {
+			isa = PBXContainerItemProxy; containerPortal = 98F54143AB4E86B28C3AFEE0; proxyType = 1; remoteGlobalIDString = 06735F3ADC966C98D70CAE84; remoteInfo = WhisperBackend;
+		};
+		C1795199BD00A0F418A9C9B6 = {
+			isa = PBXTargetDependency; target = 06735F3ADC966C98D70CAE84; targetProxy = DC4D2511B20C9E9563CAFCE3;
+		};
+		2AD0C1F06D075ECE9D4F9D39 = {
+			isa = PBXContainerItemProxy; containerPortal = 98F54143AB4E86B28C3AFEE0; proxyType = 1; remoteGlobalIDString = 4F6027D858B72CC70E5CC8E9; remoteInfo = WisprLocal;
+		};
+		E435245EF5CC65FC057AC0A6 = {
+			isa = PBXTargetDependency; target = 4F6027D858B72CC70E5CC8E9; targetProxy = 2AD0C1F06D075ECE9D4F9D39;
+		};
+		F7B2593AC90219F4F1F22A02 = {
+			isa = PBXContainerItemProxy; containerPortal = 98F54143AB4E86B28C3AFEE0; proxyType = 1; remoteGlobalIDString = 06735F3ADC966C98D70CAE84; remoteInfo = WhisperBackend;
+		};
+		80D4E1E9B3807F8CC2CEE8ED = {
+			isa = PBXTargetDependency; target = 06735F3ADC966C98D70CAE84; targetProxy = F7B2593AC90219F4F1F22A02;
+		};
+		8F5B626E483F79FC4BC78D05 = {
+			isa = XCLocalSwiftPackageReference; relativePath = Dependencies/WhisperCpp;
+		};
+		ECB25C3C6F13E3F2AA3A6F96 = {
+			isa = XCSwiftPackageProductDependency; package = 8F5B626E483F79FC4BC78D05; productName = whisper;
+		};
+		4F6027D858B72CC70E5CC8E9 = {
+			isa = PBXNativeTarget; buildConfigurationList = 60EA43DB068BD71C9709BED5; buildPhases = (2D764CD838DB39F040AA7EC4, 12384B5908BE5FE5B3301CEE, 06F5DC629BD46AAFD46564D1, 2CE417D6E64CB4A61C3C102C); buildRules = (); dependencies = (C1795199BD00A0F418A9C9B6); name = WisprLocal; productName = WisprLocal; productReference = 655EF97FE96DE056C0463E0D; productType = "com.apple.product-type.application";
+		};
+		06735F3ADC966C98D70CAE84 = {
+			isa = PBXNativeTarget; buildConfigurationList = 85A2010034C2DDC5670ED6B6; buildPhases = (EF8133E926578885C169E662, 3F82EC67954518D7E1DC7CD2, 5D125A81AD2E14FE3B8CD92E); buildRules = (); dependencies = (); name = WhisperBackend; packageProductDependencies = (ECB25C3C6F13E3F2AA3A6F96, ); productName = WhisperBackend; productReference = BF50C49B5C397BF80B93D2B5; productType = "com.apple.product-type.framework";
+		};
+		0A06C5E2DA34E686D888A695 = {
+			isa = PBXNativeTarget; buildConfigurationList = 87F2532CB576F7CE6EB48F72; buildPhases = (9F3002A5D69B22D357A58AA9, 99C7943D90D870A50ADE9160, C584AE92222380FB29B6223F); buildRules = (); dependencies = (E435245EF5CC65FC057AC0A6, 80D4E1E9B3807F8CC2CEE8ED); name = WisprLocalTests; productName = WisprLocalTests; productReference = 1C01F1AFA8A999B3652F3242; productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E5FAE1233D982CF4928FD0DB = {
+			isa = XCBuildConfiguration; buildSettings = { ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ENABLE_MODULES = YES; CLANG_ENABLE_OBJC_ARC = YES; SDKROOT = iphoneos; }; name = Debug;
+		};
+		9CE61C30A4C338AC9340D41A = {
+			isa = XCBuildConfiguration; buildSettings = { ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ENABLE_MODULES = YES; CLANG_ENABLE_OBJC_ARC = YES; SDKROOT = iphoneos; }; name = Release;
+		};
+		C04B9FE62C59E3D8C4B43BE4 = {
+			isa = XCBuildConfiguration; buildSettings = { CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 1; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = App/Info.plist; IPHONEOS_DEPLOYMENT_TARGET = 16.4; MARKETING_VERSION = 1.0; PRODUCT_BUNDLE_IDENTIFIER = com.piergiorgio.wisprlocal; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_EMIT_LOC_STRINGS = YES; SWIFT_VERSION = 5.0; SUPPORTED_PLATFORMS = "iphoneos iphonesimulator"; TARGETED_DEVICE_FAMILY = 2; }; name = Debug;
+		};
+		B82617E99FBCD53BB0059C00 = {
+			isa = XCBuildConfiguration; buildSettings = { CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 1; GENERATE_INFOPLIST_FILE = NO; INFOPLIST_FILE = App/Info.plist; IPHONEOS_DEPLOYMENT_TARGET = 16.4; MARKETING_VERSION = 1.0; PRODUCT_BUNDLE_IDENTIFIER = com.piergiorgio.wisprlocal; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_EMIT_LOC_STRINGS = YES; SWIFT_VERSION = 5.0; SUPPORTED_PLATFORMS = "iphoneos iphonesimulator"; TARGETED_DEVICE_FAMILY = 2; }; name = Release;
+		};
+		27B4CC91BD4C1149A5AF597E = {
+			isa = XCBuildConfiguration; buildSettings = { CODE_SIGN_STYLE = Automatic; DEFINES_MODULE = YES; DYLIB_INSTALL_NAME_BASE = "@rpath"; GENERATE_INFOPLIST_FILE = YES; IPHONEOS_DEPLOYMENT_TARGET = 16.4; MACH_O_TYPE = mh_dylib; PRODUCT_BUNDLE_IDENTIFIER = com.piergiorgio.wisprlocal.WhisperBackend; PRODUCT_NAME = "$(TARGET_NAME)"; SKIP_INSTALL = YES; SWIFT_VERSION = 5.0; SUPPORTED_PLATFORMS = "iphoneos iphonesimulator"; TARGETED_DEVICE_FAMILY = 2; }; name = Debug;
+		};
+		6AF66BD502619D14B2AC9491 = {
+			isa = XCBuildConfiguration; buildSettings = { CODE_SIGN_STYLE = Automatic; DEFINES_MODULE = YES; DYLIB_INSTALL_NAME_BASE = "@rpath"; GENERATE_INFOPLIST_FILE = YES; IPHONEOS_DEPLOYMENT_TARGET = 16.4; MACH_O_TYPE = mh_dylib; PRODUCT_BUNDLE_IDENTIFIER = com.piergiorgio.wisprlocal.WhisperBackend; PRODUCT_NAME = "$(TARGET_NAME)"; SKIP_INSTALL = YES; SWIFT_VERSION = 5.0; SUPPORTED_PLATFORMS = "iphoneos iphonesimulator"; TARGETED_DEVICE_FAMILY = 2; }; name = Release;
+		};
+		EBC3A6892750C7AD300013A3 = {
+			isa = XCBuildConfiguration; buildSettings = { CODE_SIGN_STYLE = Automatic; GENERATE_INFOPLIST_FILE = YES; IPHONEOS_DEPLOYMENT_TARGET = 16.4; PRODUCT_BUNDLE_IDENTIFIER = com.piergiorgio.wisprlocal.tests; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_VERSION = 5.0; SUPPORTED_PLATFORMS = "iphoneos iphonesimulator"; TARGETED_DEVICE_FAMILY = 2; TEST_TARGET_NAME = WisprLocal; BUNDLE_LOADER = "$(TEST_HOST)"; TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WisprLocal.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WisprLocal"; }; name = Debug;
+		};
+		8EEC879CA77583A3A4D299DF = {
+			isa = XCBuildConfiguration; buildSettings = { CODE_SIGN_STYLE = Automatic; GENERATE_INFOPLIST_FILE = YES; IPHONEOS_DEPLOYMENT_TARGET = 16.4; PRODUCT_BUNDLE_IDENTIFIER = com.piergiorgio.wisprlocal.tests; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_VERSION = 5.0; SUPPORTED_PLATFORMS = "iphoneos iphonesimulator"; TARGETED_DEVICE_FAMILY = 2; TEST_TARGET_NAME = WisprLocal; BUNDLE_LOADER = "$(TEST_HOST)"; TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WisprLocal.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WisprLocal"; }; name = Release;
+		};
+		862894B703A6DEDF96A9DD6C = {
+			isa = XCConfigurationList; buildConfigurations = (E5FAE1233D982CF4928FD0DB, 9CE61C30A4C338AC9340D41A, ); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release;
+		};
+		60EA43DB068BD71C9709BED5 = {
+			isa = XCConfigurationList; buildConfigurations = (C04B9FE62C59E3D8C4B43BE4, B82617E99FBCD53BB0059C00, ); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release;
+		};
+		85A2010034C2DDC5670ED6B6 = {
+			isa = XCConfigurationList; buildConfigurations = (27B4CC91BD4C1149A5AF597E, 6AF66BD502619D14B2AC9491, ); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release;
+		};
+		87F2532CB576F7CE6EB48F72 = {
+			isa = XCConfigurationList; buildConfigurations = (EBC3A6892750C7AD300013A3, 8EEC879CA77583A3A4D299DF, ); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release;
+		};
+		98F54143AB4E86B28C3AFEE0 = {
+			isa = PBXProject; attributes = { BuildIndependentTargetsInParallel = YES; LastSwiftUpdateCheck = 2660; LastUpgradeCheck = 2660; TargetAttributes = { 4F6027D858B72CC70E5CC8E9 = { CreatedOnToolsVersion = 26.6; }; 06735F3ADC966C98D70CAE84 = { CreatedOnToolsVersion = 26.6; }; 0A06C5E2DA34E686D888A695 = { CreatedOnToolsVersion = 26.6; }; }; }; buildConfigurationList = 862894B703A6DEDF96A9DD6C; compatibilityVersion = "Xcode 14.0"; developmentRegion = en; hasScannedForEncodings = 0; knownRegions = (en, Base, ); mainGroup = 325F10A6957A34D66CB8C0E4; packageReferences = (8F5B626E483F79FC4BC78D05, ); productRefGroup = FBDC4F23F93125BBEEAE800C; projectDirPath = ""; projectRoot = ""; targets = (4F6027D858B72CC70E5CC8E9, 06735F3ADC966C98D70CAE84, 0A06C5E2DA34E686D888A695);
+		};
+	};
+	rootObject = 98F54143AB4E86B28C3AFEE0;
+}
