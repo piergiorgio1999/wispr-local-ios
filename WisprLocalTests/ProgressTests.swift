@@ -1,5 +1,5 @@
 import XCTest
-@testable import WhisperBackend
+import WhisperBackend
 
 final class ProgressTests: XCTestCase {
     func testProgressFractionIsBounded() {
