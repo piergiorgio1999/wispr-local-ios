@@ -43,6 +43,10 @@
 ./SECURITY.md
 ./SPEC-V1.md
 ./SUPPORT.md
+./Sources/WhisperBackend/EiducoAudioDecoder.swift
+./Sources/WhisperBackend/EiducoTranscript.swift
+./Sources/WhisperBackend/EiducoTranscriptWriter.swift
+./Sources/WhisperBackend/EiducoWhisperWorker.swift
 ./TEMPLATE_VERSION
 ./acceptance/README.md
 ./acceptance/VERIFICATION.md
