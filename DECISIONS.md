@@ -164,3 +164,16 @@ dimostrabile con le fonti supportate. In particolare, la mappa CI rappresenta
 la sequenza contrattuale della SPEC e non pretende di estrarre la DAG YAML. La
 mappa dipendenze analizza soltanto manifest JSON esplicitamente supportati e
 segnala gli altri manifest riconosciuti come non disponibili.
+
+## 2026-10-22 — Backend Whisper locale per trascrizioni Eiduco
+
+L'app iPad esegue `whisper.cpp` sul dispositivo, senza servizio remoto e senza
+includere il modello nel bundle. L'interfaccia riceve URL scelti dall'utente;
+il backend carica il modello GGML una sola volta, decodifica l'audio a mono
+16 kHz Float32 e produce `trascrizione_raw.vtt`, `.srt` e `.json` nella
+cartella della lezione. La VTT valida è il criterio di skip usato dalla
+pipeline Eiduco esistente; il backend non marca mai una lezione come
+completata per OCR o packaging. La coda è seriale e ordinata dalle lezioni più
+recenti alle più vecchie per affiancare il batch Mac che procede in ordine
+opposto. Il frontend SwiftUI è una Issue distinta e consuma il contratto
+pubblico del backend.
