@@ -252,7 +252,7 @@ jobs:
         run: gitleaks dir . --redact --exit-code=2
 
       - name: Actionlint
-        uses: reviewdog/action-actionlint@237d1fc6f7b995cc26e2eea39405fda029efd33e # v1.73.1
+        uses: reviewdog/action-actionlint@6c5efc3e507f3a0678fe69e82423dfe41edc86b8 # v1.73.1
         with:
           fail_level: error
 
